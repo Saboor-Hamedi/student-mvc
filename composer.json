@@ -1,0 +1,11 @@
+{
+    "name": "saboor/school",
+    "description": "School management system",
+    "require": {},
+        "autoload":{
+            "psr-4":{
+                "app\\": "private/"
+            }
+        }
+    
+}
