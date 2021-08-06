@@ -2,7 +2,7 @@
 namespace app\controller;
 use app\core\Controller;
 class Student extends Controller{
-	public function __construct(){
+	public function index(){
 		echo 'I am student';
 	}
 }
