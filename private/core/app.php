@@ -1,11 +1,10 @@
 <?php 
 namespace app\core;
-
 class App{
 	protected $controller = "home";
 	protected $method = "index";
 	protected $params = array();
-	
+
 	public function __construct()
 	{
 		$URL = $this->getURL();
@@ -16,7 +15,7 @@ class App{
 		}
 		
 		require "../private/controller/" . $this->controller . ".php";
-		$this->controller = new Controller();
+		$this->controller = new $this->controller();
 		if(isset($URL[1]))
 		{
 			if(method_exists($this->controller, $URL[1]))
@@ -25,8 +24,8 @@ class App{
 				unset($URL[1]);
 			}
 		}
-		// $URL = array_values($URL);
-		// $this->params = $URL;
+		$URL = array_values($URL);
+		$this->params = $URL;
 		call_user_func_array([$this->controller,$this->method], $this->params);
 	}
 	private function getURL()
