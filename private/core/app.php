@@ -6,10 +6,10 @@ class App{
 	protected $params = array();
 	public function __construct(){
 		$URL = $this->getURL();
-		if(file_exists("/../private/controller/".$URL[0].".php")){
+		if(file_exists("/private/controller/".$URL[0].".php")){
 			$this->controller = $URL[0];
 		}
-		return "/../private/controller/".$this->controller.".php";
+		return "/private/controller/".$this->controller.".php";
 		$this->controller = new $this->Controller();
 	}
 	private function getURL(){
